@@ -54,12 +54,12 @@ K-Means partitions data into $k$ clusters by iteratively assigning each point to
 
 ## Data Preprocessing
 
-| Preprocessing Step   | Required   | Notes                                             |
-|-----------------------|------------|---------------------------------------------------|
-| Feature Scaling      | ✅ Yes     | Strongly recommended (distance-based algorithm)  |
-| Missing Value Handling | ✅ Yes     | Impute or remove missing values                   |
-| Categorical Encoding   | ✅ Yes     | Use `OneHotEncoder` or similar                    |
-| Outlier Treatment      | ⚠️ Optional| Can distort centroids and cluster assignments     |
+| Preprocessing Step      | Required     | Notes                                         |
+|------------------------|--------------|-----------------------------------------------|
+| Feature Scaling        | ✅ Yes       | Strongly recommended (distance-based algorithm)|
+| Missing Value Handling | ✅ Yes       | Impute or remove missing values                |
+| Categorical Encoding   | ✅ Yes       | Use `OneHotEncoder` or similar                 |
+| Outlier Treatment      | ⚠️ Optional | Can distort centroids and cluster assignments  |
 
 ---
 
