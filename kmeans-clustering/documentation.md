@@ -21,11 +21,11 @@
 
 ## Overview
 
-| Attribute   | Description                              |
-|-------------|------------------------------------------|
-| **Type**    | Unsupervised Learning                     |
-| **Task**    | Clustering                                |
-| **Library** | `sklearn.cluster.KMeans`                  |
+| Attribute  | Description              |
+|------------|--------------------------|
+| **Type**   | Unsupervised Learning    |
+| **Task**   | Clustering               |
+| **Library**| `sklearn.cluster.KMeans` |
 
 K-Means partitions data into $k$ clusters by iteratively assigning each point to the nearest centroid and updating centroids to minimize the within-cluster sum of squares (inertia).
 
@@ -33,39 +33,39 @@ K-Means partitions data into $k$ clusters by iteratively assigning each point to
 
 ## Use Cases
 
-| Scenario                           | Suitability      |
-|------------------------------------|------------------|
-| Customer segmentation              | ✅ Excellent     |
-| Document/image grouping            | ✅ Excellent     |
-| Market basket exploration          | ✅ Good          |
-| Large-scale datasets               | ✅ Good          |
-| Non-spherical clusters             | ⚠️ Consider other algorithms |
+| Scenario                           | Suitability                      |
+|------------------------------------|----------------------------------|
+| Customer segmentation              | ✅ Excellent                     |
+| Document/image grouping            | ✅ Excellent                     |
+| Market basket exploration          | ✅ Good                          |
+| Large-scale datasets               | ✅ Good                          |
+| Non-spherical clusters             | ⚠️ Consider other algorithms     |
 
 ---
 
 ## Input & Output
 
-| Component      | Description                                      |
-|--------------- |--------------------------------------------------| 
+| Component      | Description                                                       |
+|----------------|-------------------------------------------------------------------|
 | **Input (X)**  | Numerical feature matrix *(categorical features must be encoded)* |
-| **Output**     | Cluster labels and centroid positions             |
+| **Output**     | Cluster labels and centroid positions                             |
 
 ---
 
 ## Data Preprocessing
 
-| Preprocessing Step     | Required | Notes                                                      |
-|-----------------------|----------|------------------------------------------------------------|
-| Feature Scaling       | ✅ Yes   | Strongly recommended (distance-based algorithm)            |
-| Missing Value Handling| ✅ Yes   | Impute or remove missing values                            |
-| Categorical Encoding  | ✅ Yes   | Use `OneHotEncoder` or similar                             |
-| Outlier Treatment     | ⚠️ Optional | Can distort centroids and cluster assignments            |
+| Preprocessing Step   | Required   | Notes                                             |
+|-----------------------|------------|---------------------------------------------------|
+| Feature Scaling      | ✅ Yes     | Strongly recommended (distance-based algorithm)  |
+| Missing Value Handling | ✅ Yes     | Impute or remove missing values                   |
+| Categorical Encoding   | ✅ Yes     | Use `OneHotEncoder` or similar                    |
+| Outlier Treatment      | ⚠️ Optional| Can distort centroids and cluster assignments     |
 
 ---
 
 ## Algorithm Workflow
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │  1. Initialize $k$ centroids (random or k-means++)          │
 │                           ↓                                 │
@@ -81,13 +81,13 @@ K-Means partitions data into $k$ clusters by iteratively assigning each point to
 
 ## Hyperparameters
 
-| Parameter        | Type    | Default | Description                                 |
-|------------------|---------|---------|---------------------------------------------|
-| `n_clusters`     | int     | 8       | Number of clusters to form                  |
-| `init`           | str     | "k-means++" | Initialization strategy                  |
-| `max_iter`       | int     | 300     | Maximum number of iterations                |
-| `n_init`         | int     | 10      | Number of initializations to try            |
-| `random_state`   | int     | None    | Reproducibility seed                        |
+| Parameter        | Type | Default     | Description                          |
+|------------------|------|-------------|--------------------------------------|
+| `n_clusters`     | int  | 8           | Number of clusters to form           |
+| `init`           | str  | "k-means++" | Initialization strategy              |
+| `max_iter`       | int  | 300         | Maximum number of iterations         |
+| `n_init`         | int  | 10          | Number of initializations to try     |
+| `random_state`   | int  | None        | Reproducibility seed                 |
 
 ---
 
@@ -101,22 +101,22 @@ K-Means partitions data into $k$ clusters by iteratively assigning each point to
 
 ## Evaluation Metrics
 
-| Metric             | Formula                                   | Interpretation                        |
-|-------------------|--------------------------------------------|---------------------------------------|
-| **Inertia (WCSS)**| $\sum_{i=1}^{n} \lVert x_i - \mu_{c_i} \rVert^2$ | Within-cluster variance (lower is better) |
-| **Silhouette**     | $\frac{b - a}{\max(a, b)}$                  | Cluster separation (higher is better) |
-| **Calinski-Harabasz** | $\frac{\text{between-cluster}}{\text{within-cluster}}$ | Higher indicates better-defined clusters |
+| Metric               | Formula                                           | Interpretation                        |
+|-----------------------|----------------------------------------------------|------------------------------------------|
+| **Inertia (WCSS)**   | $\sum_{i=1}^{n} \lVert x_i - \mu_{c_i} \rVert^2$  | Within-cluster variance (lower is better) |
+| **Silhouette**       | $\frac{b - a}{\max(a, b)}$                        | Cluster separation (higher is better)     |
+| **Calinski-Harabasz**| $\frac{\text{between-cluster}}{\text{within-cluster}}$ | Higher indicates better-defined clusters  |
 
 ---
 
 ## Pros & Cons
 
-| ✅ Advantages                       | ❌ Disadvantages                               |
-|------------------------------------|----------------------------------------------|
-| Simple and fast                    | Requires choosing $k$                        |
-| Scales to large datasets           | Sensitive to initialization                  |
-| Easy to interpret                  | Struggles with non-spherical clusters        |
-| Works well with clear separation   | Sensitive to outliers and feature scaling    |
+| ✅ Advantages                 | ❌ Disadvantages                        |
+|---------------------------------|---------------------------------------------|
+| Simple and fast               | Requires choosing $k$                     |
+| Scales to large datasets      | Sensitive to initialization               |
+| Easy to interpret             | Struggles with non-spherical clusters     |
+| Works well with clear separation | Sensitive to outliers and feature scaling |
 
 ---
 
@@ -144,8 +144,4 @@ print(f"Silhouette: {silhouette_score(X_scaled, labels):.4f}")
 
 ---
 
-<div align="center">
-
-**📚 Related:** [DBSCAN](#) | [Hierarchical Clustering](#) | [Gaussian Mixture Models](#)
-
-</div>
+**📚 Related:** DBSCAN | Hierarchical Clustering | Gaussian Mixture Models
